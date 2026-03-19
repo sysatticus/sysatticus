@@ -1,16 +1,14 @@
-## Hi there 👋
+> sys.atticus.wake()
 
-<!--
-**sysatticus/sysatticus** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+location: kyoto, jst  
+status:   building tools and automating things so i don't have to.
 
-Here are some ideas to get you started:
+[ stack ]
+- languages: python, c++, bash
+- os/tools:  linux, docker, git
+- focus:     backend loops, daemons, terminal workflows
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+[ current processes ]
+- mapping environment.
+- configuring i/o loops.
+- waiting for execution.
