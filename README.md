@@ -25,12 +25,12 @@ cli tools, dev utilities, and automation that lives in the terminal. if it doesn
 ### stack
 
 ```
-python   ██░░░░░░░░░░░░  daily driver
-c++      █░░░░░░░░░░░░░  when speed matters
-bash     ██░░░░░░░░░░░░  glue language
-linux    ██████░░░░░░░░  home
-docker   ████░░░░░░░░░░  shipping containers
-git      ██████████░░░░  can't live without it
+python  ████████░░  daily driver
+c++     ██░░░░░░░░  when speed matters
+bash    ████████░░  glue language
+linux   ██████████  home
+docker  ██████░░░░  shipping containers
+git     ██████████  can't live without it
 ```
 
 ### philosophy
