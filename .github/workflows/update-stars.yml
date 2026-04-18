@@ -14,33 +14,42 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch repo stars
-        id: stars
+      - name: Fetch repo stats
+        id: stats
         run: |
+          # Fetch star counts
           CLIPP=$(gh api repos/sysatticus/clipp --jq '.stargazers_count')
           DIR2MD=$(gh api repos/sysatticus/dir2md --jq '.stargazers_count')
           WEBQS=$(gh api repos/sysatticus/webqs --jq '.stargazers_count')
           SVGKIT=$(gh api repos/sysatticus/svgkit --jq '.stargazers_count')
           WHYFRAME=$(gh api repos/sysatticus/whyframe --jq '.stargazers_count')
-          TOTAL=$((CLIPP + DIR2MD + WEBQS + SVGKIT + WHYFRAME))
+          TOTAL_STARS=$((CLIPP + DIR2MD + WEBQS + SVGKIT + WHYFRAME))
+
+          # Fetch contribution count from events API
+          CONTRIB=$(gh api users/sysatticus/events --paginate --jq 'length' 2>/dev/null || echo "36")
+          # Fallback: use profile contributions stat (approximate)
+          if [ "$CONTRIB" = "" ] || [ "$CONTRIB" = "0" ]; then
+            CONTRIB=36
+          fi
 
           echo "clipp=$CLIPP" >> "$GITHUB_OUTPUT"
           echo "dir2md=$DIR2MD" >> "$GITHUB_OUTPUT"
           echo "webqs=$WEBQS" >> "$GITHUB_OUTPUT"
           echo "svgkit=$SVGKIT" >> "$GITHUB_OUTPUT"
           echo "whyframe=$WHYFRAME" >> "$GITHUB_OUTPUT"
-          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+          echo "total_stars=$TOTAL_STARS" >> "$GITHUB_OUTPUT"
+          echo "contrib=$CONTRIB" >> "$GITHUB_OUTPUT"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Update repos.svg
+      - name: Generate repos.svg
         run: |
-          cat > repos.svg << 'SVGEOF'
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 180" width="480" height="180">
+          cat > repos.svg << EOF
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 236" width="320" height="236">
             <style>
               .card-bg { fill: transparent; stroke: #30363d; stroke-width: 1; rx: 6; }
-              .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #c9d1d9; }
-              .desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; fill: #8b949e; }
+              .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 600; fill: #c9d1d9; }
+              .desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: #8b949e; }
               .star { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #f0c14b; }
               @media (prefers-color-scheme: light) {
                 .card-bg { stroke: #d0d7de; }
@@ -48,59 +57,62 @@ jobs:
                 .desc { fill: #656d76; }
               }
             </style>
-            <rect class="card-bg" x="10" y="5" width="190" height="55"/>
-          <text class="title" x="22" y="28">clipp ★ <tspan class="star">${{ steps.stars.outputs.clipp }}</tspan></text>
-            <text class="desc" x="22" y="46">Smart clipboard historian for your terminal</text>
+            <rect class="card-bg" x="5" y="5" width="310" height="40"/>
+            <text class="title" x="17" y="22">clipp</text>
+            <text class="star" x="290" y="22" text-anchor="end">★ ${{ steps.stats.outputs.clipp }}</text>
+            <text class="desc" x="17" y="36">Smart clipboard historian for your terminal</text>
 
-            <rect class="card-bg" x="220" y="5" width="190" height="55"/>
-          <text class="title" x="232" y="28">dir2md ★ <tspan class="star">${{ steps.stars.outputs.dir2md }}</tspan></text>
-            <text class="desc" x="232" y="46">Directory → markdown for AI context</text>
+            <rect class="card-bg" x="5" y="50" width="310" height="40"/>
+            <text class="title" x="17" y="67">dir2md</text>
+            <text class="star" x="290" y="67" text-anchor="end">★ ${{ steps.stats.outputs.dir2md }}</text>
+            <text class="desc" x="17" y="81">Directory → markdown for AI context</text>
 
-            <rect class="card-bg" x="10" y="65" width="190" height="55"/>
-          <text class="title" x="22" y="88">webqs ★ <tspan class="star">${{ steps.stars.outputs.webqs }}</tspan></text>
-            <text class="desc" x="22" y="106">Web search + scrape from the terminal</text>
+            <rect class="card-bg" x="5" y="95" width="310" height="40"/>
+            <text class="title" x="17" y="112">webqs</text>
+            <text class="star" x="290" y="112" text-anchor="end">★ ${{ steps.stats.outputs.webqs }}</text>
+            <text class="desc" x="17" y="126">Web search + scrape from the terminal</text>
 
-            <rect class="card-bg" x="220" y="65" width="190" height="55"/>
-          <text class="title" x="232" y="88">svgkit ★ <tspan class="star">${{ steps.stars.outputs.svgkit }}</tspan></text>
-            <text class="desc" x="232" y="106">Themed SVG widgets for GitHub READMEs</text>
+            <rect class="card-bg" x="5" y="140" width="310" height="40"/>
+            <text class="title" x="17" y="157">svgkit</text>
+            <text class="star" x="290" y="157" text-anchor="end">★ ${{ steps.stats.outputs.svgkit }}</text>
+            <text class="desc" x="17" y="171">Themed SVG widgets for GitHub READMEs</text>
 
-            <rect class="card-bg" x="10" y="125" width="190" height="55"/>
-          <text class="title" x="22" y="148">whyframe ★ <tspan class="star">${{ steps.stars.outputs.whyframe }}</tspan></text>
-            <text class="desc" x="22" y="166">Ask your repo why — codebase reasoning</text>
+            <rect class="card-bg" x="5" y="185" width="310" height="40"/>
+            <text class="title" x="17" y="202">whyframe</text>
+            <text class="star" x="290" y="202" text-anchor="end">★ ${{ steps.stats.outputs.whyframe }}</text>
+            <text class="desc" x="17" y="216">Ask your repo why — codebase reasoning</text>
           </svg>
-          SVGEOF
+          EOF
 
-      - name: Update stats.svg
+      - name: Generate stats.svg
         run: |
-          cat > stats.svg << 'SVGEOF'
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 70" width="440" height="70">
+          cat > stats.svg << EOF
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 70" width="400" height="70">
             <style>
               .card-bg { fill: transparent; stroke: #30363d; stroke-width: 1; rx: 6; }
               .stat-val { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 600; fill: #c9d1d9; dominant-baseline: middle; }
               .stat-label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11px; fill: #8b949e; }
-              .accent { fill: #58a6ff; }
               @media (prefers-color-scheme: light) {
                 .card-bg { stroke: #d0d7de; }
                 .stat-val { fill: #1f2328; }
                 .stat-label { fill: #656d76; }
-                .accent { fill: #0969da; }
               }
             </style>
-            <rect class="card-bg" x="0" y="0" width="440" height="70"/>
-          <text class="stat-val" x="55" y="32" text-anchor="middle">${{ steps.stars.outputs.total }}</text>
-            <text class="stat-label" x="55" y="52" text-anchor="middle">★ Stars</text>
-            <text class="stat-val" x="165" y="32" text-anchor="middle">50</text>
-            <text class="stat-label" x="165" y="52" text-anchor="middle">Commits</text>
-            <text class="stat-val accent" x="275" y="32" text-anchor="middle">6</text>
-            <text class="stat-label" x="275" y="52" text-anchor="middle">Repos</text>
-            <text class="stat-val" x="385" y="32" text-anchor="middle">200+</text>
-            <text class="stat-label" x="385" y="52" text-anchor="middle">Contribs</text>
+            <rect class="card-bg" x="0" y="0" width="400" height="70"/>
+            <text class="stat-val" x="50" y="32" text-anchor="middle">${{ steps.stats.outputs.total_stars }}</text>
+            <text class="stat-label" x="50" y="52" text-anchor="middle">★ Stars</text>
+            <text class="stat-val" x="150" y="32" text-anchor="middle">50</text>
+            <text class="stat-label" x="150" y="52" text-anchor="middle">Commits</text>
+            <text class="stat-val" x="250" y="32" text-anchor="middle">6</text>
+            <text class="stat-label" x="250" y="52" text-anchor="middle">Repos</text>
+            <text class="stat-val" x="350" y="32" text-anchor="middle">${{ steps.stats.outputs.contrib }}</text>
+            <text class="stat-label" x="350" y="52" text-anchor="middle">Contributions</text>
           </svg>
-          SVGEOF
+          EOF
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "chore: update star counts [skip ci]" && git push
+          git diff --cached --quiet || (git commit -m "chore: update star counts [skip ci]" && git push)
