@@ -24,14 +24,7 @@ cli tools, dev utilities, and automation that lives in the terminal. if it doesn
 
 ### stack
 
-```
-python  ████████░░  daily driver
-c++     ██░░░░░░░░  when speed matters
-bash    ████████░░  glue language
-linux   ██████████  home
-docker  ██████░░░░  shipping containers
-git     ██████████  can't live without it
-```
+<img src="stack_bars.svg" alt="stack: Python 80%, C++ 20%, Bash 80%, Linux 100%, Docker 60%, Git 100%" align="center">
 
 ### philosophy
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 128" width="300" height="128">
+  <style>
+    .label {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      fill: #8b949e;
+      dominant-baseline: middle;
+      text-anchor: end;
+    }
+    .filled {
+      fill: #58a6ff;
+    }
+    .track {
+      fill: #21262d;
+    }
+    @media (prefers-color-scheme: light) {
+      .label { fill: #656d76; }
+      .track { fill: #d0d7de; }
+    }
+  </style>
+  <rect class="track" x="68" y="2" width="120" height="14" rx="3" ry="3"/>
+  <rect class="filled" x="68" y="2" width="96" height="14" rx="3" ry="3"/>
+  <text class="label" x="60" y="10">Python</text>
+  <rect class="track" x="68" y="24" width="120" height="14" rx="3" ry="3"/>
+  <rect class="filled" x="68" y="24" width="24" height="14" rx="3" ry="3"/>
+  <text class="label" x="60" y="32">C++</text>
+  <rect class="track" x="68" y="46" width="120" height="14" rx="3" ry="3"/>
+  <rect class="filled" x="68" y="46" width="96" height="14" rx="3" ry="3"/>
+  <text class="label" x="60" y="54">Bash</text>
+  <rect class="track" x="68" y="68" width="120" height="14" rx="3" ry="3"/>
+  <rect class="filled" x="68" y="68" width="120" height="14" rx="3" ry="3"/>
+  <text class="label" x="60" y="76">Linux</text>
+  <rect class="track" x="68" y="90" width="120" height="14" rx="3" ry="3"/>
+  <rect class="filled" x="68" y="90" width="72" height="14" rx="3" ry="3"/>
+  <text class="label" x="60" y="98">Docker</text>
+  <rect class="track" x="68" y="112" width="120" height="14" rx="3" ry="3"/>
+  <rect class="filled" x="68" y="112" width="120" height="14" rx="3" ry="3"/>
+  <text class="label" x="60" y="120">Git</text>
+</svg>
