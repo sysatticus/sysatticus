@@ -1,43 +1,33 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 350" width="400" height="350">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 180" width="480" height="180">
   <style>
-    .sk-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
-    .sk-bar-track { fill: var(--sk-track, #1a1a1a); }
-    .sk-bar-fill { fill: var(--sk-accent, #00ff41); }
-    .sk-label { font-size: 13px; fill: var(--sk-muted, #0d660d); dominant-baseline: middle; }
-    .sk-value { font-size: 13px; fill: var(--sk-fg, #00ff41); dominant-baseline: middle; }
-    .sk-title { font-size: 15px; font-weight: 600; fill: var(--sk-fg, #00ff41); }
-    .sk-star { fill: var(--sk-star, #39ff14); }
-    .sk-desc { font-size: 12px; fill: var(--sk-muted, #0d660d); }
-    .sk-card { fill: var(--sk-card-bg, #0f0f0f); stroke: var(--sk-border, #0d660d); stroke-width: 1; rx: 6; }
+    .card-bg { fill: transparent; stroke: #30363d; stroke-width: 1; rx: 6; }
+    .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #c9d1d9; }
+    .desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; fill: #8b949e; }
+    .star { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: #f0c14b; }
     @media (prefers-color-scheme: light) {
-            --sk-bg: #f5f5f5;
-      --sk-fg: #1a1a1a;
-      --sk-accent: #006400;
-      --sk-track: #d4d4d4;
-      --sk-muted: #666666;
-      --sk-border: #b0b0b0;
-      --sk-card_bg: #ffffff;
-      --sk-star_color: #f0c14b;
+      .card-bg { stroke: #d0d7de; }
+      .title { fill: #1f2328; }
+      .desc { fill: #656d76; }
+      .star { fill: #f0c14b; }
     }
   </style>
-  <rect class="sk-card" x="5" y="5" width="380" height="60"/>
-  <text class="sk-title" x="18" y="27">clipp</text>
-  <text class="sk-desc" x="18" y="47">Smart clipboard historian for your terminal</text>
-  <text class="sk-star" x="370" y="27" text-anchor="end">★ 2</text>
-  <rect class="sk-card" x="5" y="75" width="380" height="60"/>
-  <text class="sk-title" x="18" y="97">dir2md</text>
-  <text class="sk-desc" x="18" y="117">Directory to markdown for AI context windows</text>
-  <text class="sk-star" x="370" y="97" text-anchor="end">★ 2</text>
-  <rect class="sk-card" x="5" y="145" width="380" height="60"/>
-  <text class="sk-title" x="18" y="167">webqs</text>
-  <text class="sk-desc" x="18" y="187">Web search and scrape CLI powered by SearXNG</text>
-  <text class="sk-star" x="370" y="167" text-anchor="end">★ 2</text>
-  <rect class="sk-card" x="5" y="215" width="380" height="60"/>
-  <text class="sk-title" x="18" y="237">svgkit</text>
-  <text class="sk-desc" x="18" y="257">Python library for themed SVG widgets in READMEs</text>
-  <text class="sk-star" x="370" y="237" text-anchor="end">★ 2</text>
-  <rect class="sk-card" x="5" y="285" width="380" height="60"/>
-  <text class="sk-title" x="18" y="307">whyframe</text>
-  <text class="sk-desc" x="18" y="327">Ask your repo why — codebase reasoning</text>
-  <text class="sk-star" x="370" y="307" text-anchor="end">★ 2</text>
+  <rect class="card-bg" x="10" y="5" width="190" height="55"/>
+  <text class="title" x="22" y="28">clipp ★ <tspan class="star" id="clipp-stars">2</tspan></text>
+  <text class="desc" x="22" y="46">Smart clipboard historian for your terminal</text>
+
+  <rect class="card-bg" x="220" y="5" width="190" height="55"/>
+  <text class="title" x="232" y="28">dir2md ★ <tspan class="star" id="dir2md-stars">2</tspan></text>
+  <text class="desc" x="232" y="46">Directory → markdown for AI context</text>
+
+  <rect class="card-bg" x="10" y="65" width="190" height="55"/>
+  <text class="title" x="22" y="88">webqs ★ <tspan class="star" id="webqs-stars">2</tspan></text>
+  <text class="desc" x="22" y="106">Web search + scrape from the terminal</text>
+
+  <rect class="card-bg" x="220" y="65" width="190" height="55"/>
+  <text class="title" x="232" y="88">svgkit ★ <tspan class="star" id="svgkit-stars">2</tspan></text>
+  <text class="desc" x="232" y="106">Themed SVG widgets for GitHub READMEs</text>
+
+  <rect class="card-bg" x="10" y="125" width="190" height="55"/>
+  <text class="title" x="22" y="148">whyframe ★ <tspan class="star" id="whyframe-stars">2</tspan></text>
+  <text class="desc" x="22" y="166">Ask your repo why — codebase reasoning</text>
 </svg>

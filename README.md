@@ -18,11 +18,11 @@ cli tools, dev utilities, and automation that lives in the terminal. if it doesn
 
 ### repos
 
-<img src="repos.svg" alt="repo showcase: clipp, dir2md, webqs, svgkit, whyframe" align="center">
+<img src="repos.svg" alt="repo showcase with live star counts" align="center">
 
 ### stats
 
-<img src="stats.svg" alt="GitHub stats: stars, commits, repos, contributions" align="center">
+<img src="stats.svg" alt="GitHub stats" align="center">
 
 ### philosophy
 
