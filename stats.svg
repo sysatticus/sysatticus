@@ -10,12 +10,12 @@
     }
   </style>
   <rect class="card-bg" x="0" y="0" width="400" height="70"/>
-  <text class="stat-val" x="50" y="32" text-anchor="middle">2</text>
+  <text class="stat-val" x="50" y="32" text-anchor="middle">0</text>
   <text class="stat-label" x="50" y="52" text-anchor="middle">★ Stars</text>
   <text class="stat-val" x="150" y="32" text-anchor="middle">50</text>
   <text class="stat-label" x="150" y="52" text-anchor="middle">Commits</text>
   <text class="stat-val" x="250" y="32" text-anchor="middle">6</text>
   <text class="stat-label" x="250" y="52" text-anchor="middle">Repos</text>
-  <text class="stat-val" x="350" y="32" text-anchor="middle">36</text>
+  <text class="stat-val" x="350" y="32" text-anchor="middle">30</text>
   <text class="stat-label" x="350" y="52" text-anchor="middle">Contributions</text>
 </svg>

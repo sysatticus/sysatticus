@@ -12,26 +12,26 @@
   </style>
   <rect class="card-bg" x="5" y="5" width="310" height="40"/>
   <text class="title" x="17" y="22">clipp</text>
-  <text class="star" x="290" y="22" text-anchor="end">★ 2</text>
+  <text class="star" x="290" y="22" text-anchor="end">★ 0</text>
   <text class="desc" x="17" y="36">Smart clipboard historian for your terminal</text>
 
   <rect class="card-bg" x="5" y="50" width="310" height="40"/>
   <text class="title" x="17" y="67">dir2md</text>
-  <text class="star" x="290" y="67" text-anchor="end">★ 2</text>
+  <text class="star" x="290" y="67" text-anchor="end">★ 0</text>
   <text class="desc" x="17" y="81">Directory → markdown for AI context</text>
 
   <rect class="card-bg" x="5" y="95" width="310" height="40"/>
   <text class="title" x="17" y="112">webqs</text>
-  <text class="star" x="290" y="112" text-anchor="end">★ 2</text>
+  <text class="star" x="290" y="112" text-anchor="end">★ 0</text>
   <text class="desc" x="17" y="126">Web search + scrape from the terminal</text>
 
   <rect class="card-bg" x="5" y="140" width="310" height="40"/>
   <text class="title" x="17" y="157">svgkit</text>
-  <text class="star" x="290" y="157" text-anchor="end">★ 2</text>
+  <text class="star" x="290" y="157" text-anchor="end">★ 0</text>
   <text class="desc" x="17" y="171">Themed SVG widgets for GitHub READMEs</text>
 
   <rect class="card-bg" x="5" y="185" width="310" height="40"/>
   <text class="title" x="17" y="202">whyframe</text>
-  <text class="star" x="290" y="202" text-anchor="end">★ 2</text>
+  <text class="star" x="290" y="202" text-anchor="end">★ 0</text>
   <text class="desc" x="17" y="216">Ask your repo why — codebase reasoning</text>
 </svg>
